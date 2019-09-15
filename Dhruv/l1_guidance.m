@@ -23,6 +23,10 @@ function [a_p, L1] = l1_guidance(X, traj, L1, update, wind)
       if ref_point_index >= 100
           lam = 1.0089; R = 3;
           L1 = 2*V*R/(V^2 + (2*R*lam)^2)^0.5;
+          global crossTrackErr;
+          global CTEIndx;
+          crossTrackErr(CTEIndx) = ....;
+          CTEIndx = CTEIndx + 1;
       end
     
     if update == true
